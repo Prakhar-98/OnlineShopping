@@ -1,0 +1,9 @@
+<div class="container" *ngIf='product!=undefined'>
+Product Name:{{product.productName}}<br/><br/>
+Product Description:{{product.productDescription}}<br/><br/>
+Product Price:{{product.productPrice}}<br/><br/>
+Product Brand:{{product.productBrand}}<br/><br/>
+Product Stock:{{product.productStock}}<br/><br/>
+Add Remarks:<input type="text" [(ngModel)]='product.productRemark' /><br/><br/>
+<button class="btn btn-success" (click)='verify()'>Verify</button> &nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn btn-danger" (click)='decline()'>Decline</button></div>

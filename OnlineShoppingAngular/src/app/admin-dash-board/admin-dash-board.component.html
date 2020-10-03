@@ -1,0 +1,26 @@
+<div class="container" *ngIf='products!=undefined'>
+    <h2>Admin Page</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="4">Admin Page</th>
+        </tr>
+        <tr>
+          <th>RetailerId</th>
+          <th>Product Name</th>
+          <th>Verification Link </th>
+              <th>Delete Retailer</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let item of products">
+          <td>{{item.retailerId}}</td>
+          <td>{{item.productName}}</td>
+          <td><a class="forgot" [routerLink]="['/verify', item.productId]">Verify</a></td>
+          <td><a class="forgot" (click)='deleteRetailer(item)'>Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="center"><a class="btn btn-primary btn-block" href="addRetailer">Add Retailer</a></div><br/>
+    <div class="center"><a class="btn btn-primary btn-block" href="addCategory">Add Category</a></div>
+  </div>

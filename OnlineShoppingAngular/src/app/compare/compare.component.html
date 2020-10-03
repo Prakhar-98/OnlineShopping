@@ -1,0 +1,27 @@
+<h2>Compare Products</h2>
+
+<table *ngIf="products.length!=0" class="table table-bordered" style="text-align: center;">
+    <tr>
+        <th>Product</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let p of products">
+        <td><img [src]="p.productImg1" width="100px" height="100px"></td>
+        <td><a (click)='showDetails(p.productId)' class="p-2 text-dark" >{{p.productName}}</a></td>
+       
+        <td>{{p.productDescription}}</td>
+        <td>{{p.productBrand}}</td>
+        <td>{{p.productPrice|currency:'INR'}}</td>
+        <td>
+            <button class="btn btn-success"(click)='addToCart(p)'*ngIf='!checkInCart(p)'>Add to Cart</button><br><br>
+            <button class="btn btn-danger" (click)="removeFromCompare(p)">Remove from Compare</button>
+        </td>
+        <p *ngIf="message">
+            {{message}}
+        </p>
+    </tr>
+</table>

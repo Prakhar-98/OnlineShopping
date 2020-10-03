@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="imagecontainer">
+                <div class="mySlides">
+                    <div class="numbertext">1 /3
+                    </div>
+                    <img [src]="currentimg" class="zoom" style="width: 100%" />
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="https://lh3.googleusercontent.com/jVnVgukM3j9TsapcSdlTkpXfkBVb30r88ou4ekiPtNpPiv3ikD1gv29fKD4uYqDwfJE=w412-h220-rw" style="width: 100%" />
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="width: 100%" />
+                </div>
+                <!--    
+                <a class="prev" ng-click="plusSlides(-1)">❮</a>
+                <a class="next" ng-click="plusSlides(+1)">❯</a>-->
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+                <div class="row">
+                    <div class="column" *ngIf=" product!=undefined && product.productImg1!=null && product.productImg1!='' && product.productImg1!=undefined">
+                        <img class="demo cursor" [src]="product.productImg1" style="width: 100%" (click)="changeImg(1)" alt="The Woods" />
+                    </div>
+                    <div class="column" *ngIf=" product!=undefined && product.productImg2!=null && product.productImg2!='' && product.productImg2!=undefined">
+                        <img class="demo cursor" [src]="product.productImg2" style="width: 100%" (click)="changeImg(2)" alt="Cinque Terre" />
+                    </div>
+                    <div class="column" *ngIf=" product!=undefined && product.productImg3!=null && product.productImg3!='' && product.productImg3!=undefined">
+                        <img class="demo cursor" [src]="product.productImg3" style="width: 100%" (click)="changeImg(3)" alt="Mountains and fjords" />
+                    </div>
+                    <div class="column" *ngIf=" product!=undefined && product.productImg4!=null && product.productImg4!='' && product.productImg4!=undefined">
+                        <img class="demo cursor" [src]="product.productImg3" style="width: 100%" (click)="changeImg(4)" alt="Mountains and fjords" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" style="height: 100%">
+                <h5 class="card-header">{{product.productName}}</h5>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.productPrice| currency:'INR'}}</h5>
+                    <p class="card-text">
+                        {{product.productDescription}}
+                    </p>
+                    
+                    <div *ngIf="inSession!=undefined && inSession">
+                        <a class="btn btn-primary" *ngIf='!inCart' (click)='addToCart()'>Add to Cart</a>
+                        <a class="btn btn-primary" *ngIf='inCart' (click)='removeFromCart()'>Remove fom Cart</a>                       
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <a class="btn btn-primary"(click)='addToWishList()' *ngIf='!inWishList'>Add To WishList</a>
+                    <a class="btn btn-primary"(click)='removeFromWishList()'*ngIf='inWishList'>Remove from WishList</a>
+                    <br/><br/>
+                        <a class="btn btn-primary"(click)='removeFromCompare()' *ngIf='incomparision'>Remove from Compare</a>
+                        <a class="btn btn-primary"(click)='addToCompare()'*ngIf='!incomparision'>Add to Compare</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
