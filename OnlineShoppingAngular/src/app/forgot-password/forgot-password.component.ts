@@ -27,29 +27,25 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendOtp()
+  sendOtp()//Returns 0 if email not registered and OTP if registered
   {
     this.otpService.getOtpfromApi(this.user.userEmail).subscribe((data)=>
     {
       this.otp=data;
       if(this.otp!=0)
       {
-      this.otpSent=true;
+      this.otpSent=true;//OTP is sent successfully on registered email id
       }
     else
      {
-      this.message="Email does not exsist";
+      this.message="Email not registered";
       }
     });
     
   }
   resendOtp()
   {
-    this.otpService.resenttOtpfromApi(this.user.userEmail,this.otp).subscribe((data)=>
-    {
-      console.log(data);
-    })
-    console.log("Otp sended again")
+    this.otpService.resenttOtpfromApi(this.user.userEmail,this.otp).subscribe();
   }
   changePassword(fp:NgForm)
   {
@@ -61,9 +57,9 @@ export class ForgotPasswordComponent implements OnInit {
     {
       if(this.user.userPassword!=this.cPassword)
       {
-        this.message='Password Mismatch';
+        this.message="Passwords don't match";
       }
-      else if(this.otp==this.userotp)
+      else if(this.otp==this.userotp) //Check if OTP sent is same as OTP entered by user
       {
       this.userService.changePasswordFromApi(this.user).subscribe((data)=>{
         this.router.navigate(['login']);

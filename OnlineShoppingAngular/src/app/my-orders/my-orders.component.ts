@@ -13,6 +13,7 @@ export class MyOrdersComponent implements OnInit {
 
   orders:Order[]=[];
   constructor(private local:LocalStorageService,private orderService:OrderServiceService,private router:Router) {
+     //Get orders of the user
     this.orderService.getAllOrdesFromAPI(this.local.retrieve('user').userId).subscribe((data)=>
     {
       this.orders=data;

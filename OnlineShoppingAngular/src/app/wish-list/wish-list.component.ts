@@ -20,7 +20,7 @@ export class WishListComponent implements OnInit {
   user:User;
   constructor(private wishListService:WishListService,private router:Router,private local:LocalStorageService,private cartService:CartService) {
     this.user=this.local.retrieve('user');
-    this.wishListService.getWishListProdutsFromApi(this.user.userId).subscribe(data=>{
+    this.wishListService.getWishListProdutsFromApi(this.user.userId).subscribe(data=>{  //Get wishlist products of user
       this.products=data;
     });
     this.cartService.getProductsFromCart(this.user.userId).subscribe(d=>

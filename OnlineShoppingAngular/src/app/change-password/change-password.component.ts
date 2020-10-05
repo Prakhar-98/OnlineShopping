@@ -28,12 +28,13 @@ export class ChangePasswordComponent implements OnInit {
   {
     if(form.valid && this.newPassword==this.confirmPassword)
     {
-      if(this.currentPassword!=this.user.userPassword)this.message='Current Password is wrong';
+      if(this.currentPassword!=this.user.userPassword)
+        this.message='Incorrect current password';
       else
       {
         this.user.userPassword=this.newPassword;
         this.userService.changePasswordFromApi(this.user).subscribe((data)=>{
-          this.local.store('user',this.user);
+          this.local.store('user',this.user);//Update the localstorage with new values
           this.router.navigate(['/']);
       });
       }

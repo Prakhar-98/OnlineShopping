@@ -34,7 +34,7 @@ export class DeactivateaccountComponent implements OnInit {
     }
     else
     {
-      this.message='Wrong Password'
+      this.message='Incorrect password';
     }
   }
 }

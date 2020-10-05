@@ -9,13 +9,13 @@ export class CategoryService{
     {
         this.url='https://onwebapi.azurewebsites.net';
     }
-
+     //Get all categories
     getCategories():Observable<Category[]>
     {
         return this.httpCilent.get<Category[]>(this.url+"/api/category");
     }
     
-    addCategoryFromApi(categoryName:string):Observable<boolean>
+    addCategoryFromApi(categoryName:string):Observable<boolean>  //Add category in db
     {
         return this.httpCilent.post<boolean>(this.url+"/api/category?category="+categoryName,null);
     }

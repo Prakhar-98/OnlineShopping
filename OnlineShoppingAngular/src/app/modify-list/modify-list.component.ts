@@ -24,10 +24,12 @@ export class ModifyListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   modify(id:number)
   {
     this.router.navigate(['retailer/modifyproduct/'+id]);
   }
+  
   delete(id:number)
   {
     this.router.navigate(['retailer/deleteproduct/'+id]);

@@ -12,23 +12,27 @@ export class UserService {
     {
       this.url='https://onwebapi.azurewebsites.net';
     }
+    //Change user Password
   changePasswordFromApi(user:User)
   {
     return this.httpCilent.get(this.url+"/api/login?email="+user.userEmail+"&password="+user.userPassword);
   }
+   //User login
   loginFromApi(user:User):Observable<User>
   {
     return this.httpCilent.put<User>(this.url+"/api/login",user);
   }
+  //User registration
   signUpFromApi(user:User):Observable<boolean>
   {
     return this.httpCilent.post<boolean>(this.url+"/api/login",user);
   }
-
+   //Account deactivation
   deactivateAccount(user:User)
   {
     return this.httpCilent.request("delete",this.url+"/api/users",{body:user});
   }
+  // Update user details
   updateFromApi(user:User):Observable<boolean>
   {
     return this.httpCilent2.put<boolean>(this.url+"/api/users/"+user.userId,user);

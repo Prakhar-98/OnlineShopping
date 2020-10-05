@@ -26,7 +26,7 @@ export class SignUpComponent implements OnInit {
     if(signUp.valid)
     {if(this.cpassword!=this.user.userPassword)
     {
-      this.message='Passwords do not a match';
+      this.message='Passwords do not match';
     }
     else this.userService.signUpFromApi(this.user).subscribe((data)=>
     {

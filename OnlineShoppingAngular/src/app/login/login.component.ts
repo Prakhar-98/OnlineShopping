@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit {
 
   login(loginForm:NgForm)
   {
-    if(loginForm.valid)this.userService.loginFromApi(this.user).subscribe((data)=>
+    if(loginForm.valid)this.userService.loginFromApi(this.user).subscribe((data)=> //Returns user object if login successful else null
     {
       if(data!=null) {
-        this.localStorage.store('user',data);
+        this.localStorage.store('user',data);//Store user object in localstorage for the session
         this.router.navigate(['']);
       }
-      else this.message="Invalid username or password";
+      else this.message="Incorrect username or password";
     });
     else this.message='Please Enter all the details correctly'
   }

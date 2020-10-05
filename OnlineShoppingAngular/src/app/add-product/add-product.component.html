@@ -13,6 +13,9 @@
   </span>
     <br>
     Product Price <input type="text" size="50" class="form-control" [(ngModel)]="product.productPrice" name="Price" #p='ngModel' required> 
+    <span class='text-danger' *ngIf="p.errors && p.touched">
+      <span *ngIf="p.errors.required"> Price is required </span>
+  </span>
     <br>
     Product Stock <input type="text" size="50" class="form-control" [(ngModel)]="product.productStock" name="Stock" #s='ngModel' required>
     <br>

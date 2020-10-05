@@ -22,7 +22,7 @@ export class PersonaldetailsComponent implements OnInit {
   }
   update()
   {
-    this.userService.updateFromApi(this.user).subscribe((data)=>
+    this.userService.updateFromApi(this.user).subscribe((data)=>//Returns true if user details updated successfully else false
     {
       if(data)
       {

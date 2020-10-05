@@ -15,10 +15,12 @@ export class ModifyProductComponent implements OnInit {
   product:Product;categories:Category[]=[];
   message:string;
   constructor(private productService:ProductService,private aroute:ActivatedRoute,private route:Router,private cService:CategoryService) { 
+    
     this.productService.getProduct(this.aroute.snapshot.params.id).subscribe((data)=>
     {
       this.product=data;
     });
+     //Category list to display in dropdown
     cService.getCategories().subscribe((data)=>
     {
       this.categories=data;
@@ -29,7 +31,7 @@ export class ModifyProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  modifyProduct(mod:NgForm)
+  modifyProduct(mod:NgForm)  //Update product
   {
     if(mod.valid)
     {

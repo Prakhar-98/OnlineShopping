@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { calcPossibleSecurityContexts } from '@angular/compiler/src/template_parser/binding_parser';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 
@@ -10,14 +9,6 @@ export class OtpService {
   constructor(private httpClient:HttpClient)
   {
     this.url='https://onwebapi.azurewebsites.net';
-  }
-  resendOtp(otp:number)
-  {
-    return this.httpClient.get("");
-  }
-
-  getOtp(): number {
-    return 1;
   }
   getOtpfromApi(email:string):Observable<number>
   {
